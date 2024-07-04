@@ -1,1 +1,4 @@
-reviewgoat.info
+Type: CNAME
+Host: www
+Value: username.github.io
+TTL: 30 min (or default)
