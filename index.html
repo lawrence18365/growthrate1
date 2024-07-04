@@ -424,32 +424,77 @@ h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2
                 </div>
             </div>
         </section>
-    </main>
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 GrowthRate. All rights reserved.</p>
+    <style>
+    .clients {
+        padding: 4rem 0;
+        background-color: #f5f5f5;
+    }
+    .clients-grid {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 2rem;
+    }
+    .client-logo {
+        max-width: 200px;
+        height: auto;
+        background-color: #ddd;
+        padding: 1rem;
+        border-radius: 5px;
+    }
+    footer {
+        background-color: #1e1e1e;
+        color: #fff;
+        text-align: center;
+        padding: 2rem 0;
+        margin-top: 4rem;
+    }
+</style>
+
+<section class="clients">
+    <div class="container">
+        <h2 class="section-title">Here Are Some Of Our Clients!</h2>
+        <div class="clients-grid">
+            <div class="client-logo">Khan's Strength Camp</div>
+            <div class="client-logo">HD Media</div>
+            <div class="client-logo">Child Counselling North West</div>
+            <div class="client-logo">Seright Car Sales</div>
         </div>
-    </footer>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const ctaButton = document.querySelector('.cta-button');
-            
+    </div>
+</section>
+</main>
+<footer>
+    <div class="container">
+        <p>&copy; 2024 GrowthRate. All rights reserved.</p>
+    </div>
+</footer>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const ctaButton = document.querySelector('.cta-button');
+        
+        if (ctaButton) {
             ctaButton.addEventListener('click', () => {
                 alert('Pricing information coming soon!');
             });
+        }
 
-            // Smooth scrolling for navigation
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
                         behavior: 'smooth'
                     });
-                });
+                }
             });
+        });
 
-            // Simple animation for hero section
-            const heroSection = document.querySelector('#hero');
+        // Simple animation for hero section
+        const heroSection = document.querySelector('#hero');
+        if (heroSection) {
             heroSection.style.opacity = '0';
             heroSection.style.transform = 'translateY(20px)';
             
@@ -458,7 +503,8 @@ h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2
                 heroSection.style.opacity = '1';
                 heroSection.style.transform = 'translateY(0)';
             }, 300);
-        });
-    </script>
+        }
+    });
+</script>
 </body>
 </html>
