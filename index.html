@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GrowthRate - Sales Outreach & Client Management</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4a90e2;
+            --secondary-color: #ff6b35;
+            --bg-color: #f5f7fa;
+            --text-color: #333;
+            --light-gray: #e0e0e0;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        nav ul {
+            display: flex;
+            list-style-type: none;
+        }
+        nav ul li {
+            margin-left: 2rem;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+        main {
+            margin-top: 80px;
+        }
+        #hero {
+            background-color: #fff;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        .hero-description {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+        .cta-button {
+            background-color: var(--secondary-color);
+            color: #fff;
+            border: none;
+            padding: 0.75rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            border-radius: 5px;
+        }
+        .cta-button:hover {
+            background-color: #ff8c5a;
+        }
+        #features {
+            padding: 4rem 0;
+            background-color: #fff;
+        }
+        .section-title {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        .feature {
+            background-color: var(--bg-color);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .feature:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        .feature h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        footer {
+            background-color: var(--primary-color);
+            color: #fff;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 4rem;
+        }
+        .chat-bubble {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 15px 25px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        .chat-bubble:hover {
+            background-color: #3a7bc8;
+        }
+        .chat-bubble img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+            }
+            nav ul {
+                margin-top: 1rem;
+            }
+            nav ul li {
+                margin: 0 1rem;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">GR</div>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#login">Login</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section id="hero">
+            <div class="container">
+                <h1>Simplify Your Sales Outreach & Client Management</h1>
+                <p class="hero-description">Generate 3x more sales meetings with GrowthRate, your all-in-one tool for streamlined sales processes.</p>
+                <button class="cta-button">See Pricing</button>
+            </div>
+        </section>
+        <section id="features">
+            <div class="container">
+                <h2 class="section-title">Grow Your Business with GrowthRate</h2>
+                <div class="feature-grid">
+                    <div class="feature">
+                        <h3>Online Reviews</h3>
+                        <p>Automate follow-ups, manage reviews, and respond to customers all in one place.</p>
+                    </div>
+                    <div class="feature">
+                        <h3>Messaging Hub</h3>
+                        <p>Centralize communication across SMS, Email, Facebook, Google, and Instagram.</p>
+                    </div>
+                    <div class="feature">
+                        <h3>Integration</h3>
+                        <p>Seamlessly connect with leading apps to enhance your workflow.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 GrowthRate. All rights reserved.</p>
+        </div>
+    </footer>
+    <div id="chat-bubble" class="chat-bubble">
+        <img src="https://via.placeholder.com/30" alt="Support">
+        <span>Need help? Chat with us</span>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const ctaButton = document.querySelector('.cta-button');
+            const chatBubble = document.getElementById('chat-bubble');
+            
+            ctaButton.addEventListener('click', () => {
+                alert('Pricing information coming soon!');
+            });
+            
+            chatBubble.addEventListener('click', () => {
+                alert('Chat functionality coming soon!');
+            });
+
+            // Smooth scrolling for navigation
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Simple animation for hero section
+            const heroSection = document.querySelector('#hero');
+            heroSection.style.opacity = '0';
+            heroSection.style.transform = 'translateY(20px)';
+            
+            setTimeout(() => {
+                heroSection.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                heroSection.style.opacity = '1';
+                heroSection.style.transform = 'translateY(0)';
+            }, 300);
+        });
+    </script>
+</body>
+</html>
