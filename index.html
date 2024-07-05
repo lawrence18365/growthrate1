@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Review Goat - Gold Coast's Premier Review Management</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
+<html><head><base href="https://reviewgoat.com.au"><title>Review Goat - Gold Coast's Premier Review Management</title><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"><style>
         :root {
             --primary-color: #0a192f;
             --secondary-color: #64ffda;
@@ -105,7 +98,11 @@
             align-items: center;
             text-align: center;
             padding: 0 20px;
-            margin-top: 80px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: -1;
         }
 
         #showcase h1 {
@@ -142,8 +139,15 @@
             transform: translateY(-3px);
         }
 
+        .content-wrapper {
+            position: relative;
+            z-index: 1;
+            background-color: var(--primary-color);
+            margin-top: 100vh;
+        }
+
         section {
-            padding: 60px 0;
+            padding: 80px 0;
         }
 
         .section-title {
@@ -247,8 +251,49 @@
                 font-size: 1rem;
             }
         }
-    </style>
-</head>
+
+        /* Styles for the "Why Your Reviews Matter" section */
+        #facts .card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        #facts .highlight {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--secondary-color);
+            margin: 20px 0;
+            line-height: 1;
+        }
+
+        #facts .card p:not(.highlight) {
+            font-size: 1rem;
+            color: var(--text-color);
+        }
+
+        #facts .card::before {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            margin: 0 auto 15px;
+        }
+
+        .highlight-text {
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+
+        .centered-text {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            margin-bottom: 2rem;
+        }
+    </style></head>
 <body>
     <header>
         <div class="container">
@@ -278,147 +323,116 @@
         <a href="#contact" class="btn">GET STARTED</a>
     </section>
 
-    <section id="facts">
-        <div class="container">
-            <h2 class="section-title">Why Your Reviews Matter</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>Lost Customers</h3>
-                    <p class="highlight">94%</p>
-                    <p>of potential customers are driven away by negative reviews.</p>
-                </div>
-                <div class="card">
-                    <h3>Revenue at Risk</h3>
-                    <p class="highlight">52%</p>
-                    <p>increase in revenue for businesses with just 9 current reviews.</p>
-                </div>
-                <div class="card">
-                    <h3>Missed Opportunities</h3>
-                    <p class="highlight">33%</p>
-                    <p>of negative reviews can be turned into positive ones with proper management.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="features">
-        <div class="container">
-            <h2 class="section-title">Our Features</h2>
-            <div class="grid">
-                <div class="card">
-                    <img src="https://img.icons8.com/nolan/64/bullish.png" alt="Presence Icon">
-                    <h3>Boost Your Presence</h3>
-                    <p>Enhance your online visibility by increasing positive reviews and efficiently managing your reputation.</p>
-                </div>
-                <div class="card">
-                    <img src="https://img.icons8.com/nolan/64/consultation.png" alt="Guidance Icon">
-                    <h3>Expert Guidance</h3>
-                    <p>Benefit from tailored strategies by our local Gold Coast experts to elevate your business.</p>
-                </div>
-                <div class="card">
-                    <img src="https://img.icons8.com/nolan/64/line-chart.png" alt="Insights Icon">
-                    <h3>Real-time Insights</h3>
-                    <p>Stay informed with our advanced analytics dashboard that tracks your review performance.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="about">
-        <div class="container">
-            <h2 class="section-title">About Review Goat</h2>
-            <p>Review Goat stands as the leading review management service on the Gold Coast. Since 2020, we've empowered over 500 local businesses to climb higher in the digital realm.</p>
-            <div class="grid">
-                <div class="card">
-                    <h3>Our Mission</h3>
-                    <p>To provide unique, local insight combined with cutting-edge technology to ensure your business shines on review platforms.</p>
-                </div>
-                <div class="card">
-                    <h3>Our Approach</h3>
-                    <p>Navigating even the trickiest review landscapes with precision, we excel at crafting tailored strategies to foster positive online presences.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="services">
-        <div class="container">
-            <h2 class="section-title">Our Services</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>Review Monitoring</h3>
-                    <p>Keep a constant eye on your reviews across all major platforms with real-time alerts.</p>
-                </div>
-                <div class="card">
-                    <h3>Response Management</h3>
-                    <p>Our team crafts personalized responses, maintaining your brand voice and effectively addressing customer feedback.</p>
-                </div>
-                <div class="card">
-                    <h3>Reputation Building</h3>
-                    <p>Encourage satisfied customers to leave positive reviews and boost your online reputation.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact">
-        <div class="container">
-            <h2 class="section-title">Let's Elevate Your Reputation</h2>
-            <p>Don't let poor reviews or a low review count hold your business back. Take control of your online presence today.</p>
-            <div class="contact-form">
-                <form action="https://formspree.io/f/your_form_id" method="POST">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required>
+    <div class="content-wrapper">
+        <section id="facts">
+            <div class="container">
+                <h2 class="section-title">Why Your Reviews Matter</h2>
+                <div class="grid">
+                    <div class="card">
+                        <h3>Lost Customers</h3>
+                        <p class="highlight">94%</p>
+                        <p>of potential customers are driven away by negative reviews.</p>
                     </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
+                    <div class="card">
+                        <h3>Revenue at Risk</h3>
+                        <p class="highlight">52%</p>
+                        <p>increase in revenue for businesses with just 9 current reviews.</p>
                     </div>
-                    <div class="form-group">
-                        <label for="business">Business Name</label>
-                        <input type="text" id="business" name="business">
+                    <div class="card">
+                        <h3>Missed Opportunities</h3>
+                        <p class="highlight">33%</p>
+                        <p>of negative reviews can be turned into positive ones with proper management.</p>
                     </div>
-                    <div class="form-group">
-                        <label for="message">How can we help improve your online reputation?</label>
-                        <textarea id="message" name="message" required></textarea>
-                    </div>
-                    <button type="submit" class="btn">Get Free Consultation</button>
-                </form>
+                </div>
             </div>
-            <div class="contact-info">
-                <h3>Contact Us</h3>
-                <p>Phone: +61 473 259 052</p>
-                <p>Email: <a href="mailto:info@reviewgoat.com.au">info@reviewgoat.com.au</a></p>
-                <p>Address: 7-11 Redondo Ave, Miami QLD 4220</p>
-                <p>Join the herd and become a star in your industry with Review Goat!</p>
+        </section>
+
+        <section id="features">
+            <div class="container">
+                <h2 class="section-title">Our Features</h2>
+                <div class="grid">
+                    <div class="card">
+                        <img src="https://img.icons8.com/nolan/64/bullish.png" alt="Presence Icon">
+                        <h3>Boost Your Presence</h3>
+                        <p>Enhance your online visibility by increasing positive reviews and efficiently managing your reputation.</p>
+                    </div>
+                    <div class="card">
+                        <img src="https://img.icons8.com/nolan/64/consultation.png" alt="Guidance Icon">
+                        <h3>Expert Guidance</h3>
+                        <p>Benefit from tailored strategies by our local Gold Coast experts to elevate your business.</p>
+                    </div>
+                    <div class="card">
+                        <img src="https://img.icons8.com/nolan/64/line-chart.png" alt="Insights Icon">
+                        <h3>Real-time Insights</h3>
+                        <p>Stay informed with our advanced analytics dashboard that tracks your review performance.</p>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <footer>
-        <p>&copy; 2023 Review Goat. All rights reserved. | <a href="/privacy">Privacy Policy</a> | <a href="/terms">Terms of Service</a></p>
-    </footer>
+        <section id="about">
+            <div class="container">
+                <h2 class="section-title">About Review Goat</h2>
+                <p class="centered-text">Review Goat stands as the <span class="highlight-text">leading review management service</span> on the Gold Coast. Since 2020, we've <span class="highlight-text">empowering local businesses</span> to climb higher in the digital realm.</p>
+                <div class="grid">
+                    <div class="card">
+                        <h3>Our Mission</h3>
+                        <p>To provide unique, local insight combined with cutting-edge technology to ensure your business shines on review platforms.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Our Approach</h3>
+                        <p>Navigating even the trickiest review landscapes with precision, we excel at crafting tailored strategies to foster positive online presences.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <script>
-        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-        const nav = document.querySelector('nav');
+        <section id="services">
+            <div class="container">
+                <h2 class="section-title">Our Services</h2>
+                <div class="grid">
+                    <div class="card">
+                        <h3>Review Monitoring</h3>
+                        <p>Keep a constant eye on your reviews across all major platforms with real-time alerts.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Response Management</h3>
+                        <p>Our team crafts personalized responses, maintaining your brand voice and effectively addressing customer feedback.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Reputation Building</h3>
+                        <p>Encourage satisfied customers to leave positive reviews and boost your online reputation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        mobileMenuToggle.addEventListener('click', () => {
-            nav.classList.toggle('active');
-        });
-
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-                if (nav.classList.contains('active')) {
-                    nav.classList.remove('active');
-                }
-            });
-        });
-    </script>
-</body>
-</html>
+        <section id="contact">
+            <div class="container">
+                <h2 class="section-title">Let's Elevate Your Reputation</h2>
+                <p class="centered-text">Don't let <span class="highlight-text">poor reviews</span> or a <span class="highlight-text">low review count</span> hold your business back. <span class="highlight-text">Take control</span> of your online presence today.</p>
+                <div class="contact-form">
+                    <form action="https://formspree.io/f/your_form_id" method="POST">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="business">Business Name</label>
+                            <input type="text" id="business" name="business">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">How can we help improve your online reputation?</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Get Free Consultation</button>
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <h3>Contact Us</h3>
+                    <p>Phone: +61 473 259 052</p>
+                    <p>Email: <a href="/cdn-cgi/l/email-protection#7a13141c153a081f0c131f0d1d151b0e54191517541b0f"><span class="__cf_email__" data-cfemail="157c7b737a556770637c7062727a74613b767a783b7460">[email&#160;protected]</span></a></p><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
