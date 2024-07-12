@@ -97,19 +97,6 @@
             cursor: pointer;
         }
 
-        .offer-banner {
-            background-color: var(--secondary-color);
-            color: var(--primary-color);
-            text-align: center;
-            padding: 10px 0;
-            font-weight: 700;
-            font-size: 1.2rem;
-            position: fixed;
-            width: 100%;
-            top: 70px;
-            z-index: 999;
-        }
-
         #showcase {
             background: linear-gradient(rgba(10, 25, 47, 0.7), rgba(10, 25, 47, 0.7)), url('https://images.unsplash.com/photo-1577007273985-6f301a1d252e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8Z29sZCBjb2FzdHx8fHx8fDE2ODUwMjI2MjY&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080') no-repeat center center/cover;
             height: 100vh;
@@ -167,7 +154,129 @@
             margin-top: 100vh;
         }
 
-        /* Rest of your existing styles... */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--secondary-color);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: rgba(255,255,255,0.05);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .card h3 {
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.05);
+            color: var(--text-color);
+            border-radius: 5px;
+        }
+
+        .form-group textarea {
+            height: 150px;
+        }
+
+        footer {
+            background: rgba(10, 25, 47, 0.9);
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        #facts .card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        #facts .highlight {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--secondary-color);
+            margin: 20px 0;
+            line-height: 1;
+        }
+
+        #facts .card p:not(.highlight) {
+            font-size: 1rem;
+            color: var(--text-color);
+        }
+
+        #facts .card::before {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            margin: 0 auto 15px;
+        }
+
+        .highlight-text {
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+
+        .centered-text {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            margin-bottom: 2rem;
+        }
+
+        .offer-banner {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            text-align: center;
+            padding: 15px 0;
+            font-weight: 700;
+            font-size: 1.2rem;
+            position: fixed;
+            width: 100%;
+            top: 70px;
+            z-index: 999;
+        }
 
         @media (max-width: 768px) {
             .mobile-menu-toggle {
@@ -207,7 +316,6 @@
             .offer-banner {
                 font-size: 1rem;
                 padding: 10px 0;
-                top: 60px;
             }
         }
     </style>
@@ -236,7 +344,7 @@
     </header>
 
     <div class="offer-banner">
-        Boost your reviews by 20-35 in 30 days or you do not pay!
+        20-35 review boost in 30 days or you don't pay!
     </div>
 
     <section id="showcase">
@@ -246,7 +354,121 @@
     </section>
 
     <div class="content-wrapper">
-        <!-- Your existing sections (facts, features, about, services, contact) go here -->
+        <section id="facts">
+            <div class="container">
+                <h2 class="section-title">Why Your Reviews Matter</h2>
+                <div class="grid">
+                    <div class="card">
+                        <h3>Lost Customers</h3>
+                        <p class="highlight">94%</p>
+                        <p>of potential customers are driven away by negative reviews.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Revenue at Risk</h3>
+                        <p class="highlight">52%</p>
+                        <p>increase in revenue for businesses with just 9 current reviews.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Missed Opportunities</h3>
+                        <p class="highlight">33%</p>
+                        <p>of negative reviews can be turned into positive ones with proper management.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features">
+            <div class="container">
+                <h2 class="section-title">Our Features</h2>
+                <div class="grid">
+                    <div class="card">
+                        <img src="https://img.icons8.com/nolan/64/bullish.png" alt="Presence Icon">
+                        <h3>Boost Your Presence</h3>
+                        <p>Enhance your online visibility by increasing positive reviews and efficiently managing your reputation.</p>
+                    </div>
+                    <div class="card">
+                        <img src="https://img.icons8.com/nolan/64/consultation.png" alt="Guidance Icon">
+                        <h3>Expert Guidance</h3>
+                        <p>Benefit from tailored strategies by our local Gold Coast experts to elevate your business.</p>
+                    </div>
+                    <div class="card">
+                        <img src="https://img.icons8.com/nolan/64/line-chart.png" alt="Insights Icon">
+                        <h3>Real-time Insights</h3>
+                        <p>Stay informed with our advanced analytics dashboard that tracks your review performance.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="container">
+                <h2 class="section-title">About Review Goat</h2>
+                <p class="centered-text">Review Goat stands as the <span class="highlight-text">leading review management service</span> on the Gold Coast. Since 2020, we've <span class="highlight-text">empowering local businesses</span> to climb higher in the digital realm.</p>
+                <div class="grid">
+                    <div class="card">
+                        <h3>Our Mission</h3>
+                        <p>To provide unique, local insight combined with cutting-edge technology to ensure your business shines on review platforms.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Our Approach</h3>
+                        <p>Navigating even the trickiest review landscapes with precision, we excel at crafting tailored strategies to foster positive online presences.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services">
+            <div class="container">
+                <h2 class="section-title">Our Services</h2>
+                <div class="grid">
+                    <div class="card">
+                        <h3>Review Monitoring</h3>
+                        <p>Keep a constant eye on your reviews across all major platforms with real-time alerts.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Response Management</h3>
+                        <p>Our team crafts personalized responses, maintaining your brand voice and effectively addressing customer feedback.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Reputation Building</h3>
+                        <p>Encourage satisfied customers to leave positive reviews and boost your online reputation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <h2 class="section-title">Let's Elevate Your Reputation</h2>
+                <p class="centered-text">Don't let <span class="highlight-text">poor reviews</span> or a <span class="highlight-text">low review count</span> hold your business back. <span class="highlight-text">Take control</span> of your online presence today.</p>
+<div class="contact-form">
+                    <form action="https://formspree.io/f/your_form_id" method="POST">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="business">Business Name</label>
+                            <input type="text" id="business" name="business">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">How can we help improve your online reputation?</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Get Free Consultation</button>
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <h3>Contact Us</h3>
+                    <p>Phone: +61 473 259 052</p>
+                    <p>Email: <a href="mailto:info@reviewgoat.com.au">info@reviewgoat.com.au</a></p>
+                </div>
+            </div>
+        </section>
     </div>
 
     <footer>
@@ -270,7 +492,7 @@
             const header = document.querySelector('header');
             const offerBanner = document.querySelector('.offer-banner');
             const contentWrapper = document.querySelector('.content-wrapper');
-            
+
             function adjustContentPadding() {
                 const totalOffset = header.offsetHeight + offerBanner.offsetHeight;
                 contentWrapper.style.paddingTop = `${totalOffset}px`;
