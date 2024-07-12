@@ -24,6 +24,7 @@
             line-height: 1.6;
             color: var(--text-color);
             background-color: var(--primary-color);
+            padding-top: 120px; /* Adjust for fixed header and banner */
         }
 
         .container {
@@ -97,6 +98,20 @@
             cursor: pointer;
         }
 
+        .offer-banner {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            text-align: center;
+            padding: 10px 0;
+            font-weight: 700;
+            font-size: 1.2rem;
+            position: fixed;
+            width: 100%;
+            top: 70px; /* Adjust based on header height */
+            left: 0;
+            z-index: 999;
+        }
+
         #showcase {
             background: linear-gradient(rgba(10, 25, 47, 0.7), rgba(10, 25, 47, 0.7)), url('https://images.unsplash.com/photo-1577007273985-6f301a1d252e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8Z29sZCBjb2FzdHx8fHx8fDE2ODUwMjI2MjY&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080') no-repeat center center/cover;
             height: 100vh;
@@ -106,11 +121,7 @@
             align-items: center;
             text-align: center;
             padding: 0 20px;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: -1;
+            margin-top: 120px; /* Adjust based on header and banner height */
         }
 
         #showcase h1 {
@@ -151,7 +162,6 @@
             position: relative;
             z-index: 1;
             background-color: var(--primary-color);
-            margin-top: 100vh;
         }
 
         section {
@@ -263,19 +273,6 @@
             max-width: 800px;
             margin: 0 auto;
             margin-bottom: 2rem;
-        }
-
-        .offer-banner {
-            background-color: var(--secondary-color);
-            color: var(--primary-color);
-            text-align: center;
-            padding: 15px 0;
-            font-weight: 700;
-            font-size: 1.2rem;
-            position: fixed;
-            width: 100%;
-            top: 70px;
-            z-index: 999;
         }
 
         @media (max-width: 768px) {
@@ -440,8 +437,9 @@
         <section id="contact">
             <div class="container">
                 <h2 class="section-title">Let's Elevate Your Reputation</h2>
-                <p class="centered-text">Don't let <span class="highlight-text">poor reviews</span> or a <span class="highlight-text">low review count</span> hold your business back. <span class="highlight-text">Take control</span> of your online presence today.</p>
-<div class="contact-form">
+                <p class="centered-text">Don't let <span class="highlight-text">poor reviews</span> or a <span class="highlight-text">low review count</span>
+<p class="centered-text">Don't let <span class="highlight-text">poor reviews</span> or a <span class="highlight-text">low review count</span> hold your business back. <span class="highlight-text">Take control</span> of your online presence today.</p>
+                <div class="contact-form">
                     <form action="https://formspree.io/f/your_form_id" method="POST">
                         <div class="form-group">
                             <label for="name">Name</label>
@@ -485,21 +483,6 @@
             menuToggle.addEventListener('click', function() {
                 nav.classList.toggle('active');
             });
-        });
-
-        // Adjust content padding for fixed header and offer banner
-        document.addEventListener('DOMContentLoaded', function() {
-            const header = document.querySelector('header');
-            const offerBanner = document.querySelector('.offer-banner');
-            const contentWrapper = document.querySelector('.content-wrapper');
-
-            function adjustContentPadding() {
-                const totalOffset = header.offsetHeight + offerBanner.offsetHeight;
-                contentWrapper.style.paddingTop = `${totalOffset}px`;
-            }
-
-            window.addEventListener('resize', adjustContentPadding);
-            adjustContentPadding();
         });
 
         // Smooth scrolling for anchor links
