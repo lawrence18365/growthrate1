@@ -1,4 +1,12 @@
-<html><head><base href="https://reviewgoat.com.au"><title>Review Goat - Gold Coast's Premier Review Management</title><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"><style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="https://reviewgoat.com.au">
+    <title>Review Goat - Gold Coast's Premier Review Management</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
         :root {
             --primary-color: #0a192f;
             --secondary-color: #64ffda;
@@ -216,43 +224,6 @@
             padding: 20px 0;
         }
 
-        @media (max-width: 768px) {
-            .mobile-menu-toggle {
-                display: block;
-            }
-
-            nav {
-                display: none;
-                width: 100%;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                background: rgba(10, 25, 47, 0.9);
-                padding: 20px;
-            }
-
-            nav.active {
-                display: block;
-            }
-
-            nav ul {
-                flex-direction: column;
-            }
-
-            nav ul li {
-                margin: 10px 0;
-            }
-
-            #showcase h1 {
-                font-size: 2.5rem;
-            }
-
-            #showcase p {
-                font-size: 1rem;
-            }
-        }
-
-        /* Styles for the "Why Your Reviews Matter" section */
         #facts .card {
             display: flex;
             flex-direction: column;
@@ -293,7 +264,62 @@
             margin: 0 auto;
             margin-bottom: 2rem;
         }
-    </style></head>
+
+        .offer-banner {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            text-align: center;
+            padding: 15px 0;
+            font-weight: 700;
+            font-size: 1.2rem;
+            position: fixed;
+            width: 100%;
+            top: 70px;
+            z-index: 999;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            nav {
+                display: none;
+                width: 100%;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                background: rgba(10, 25, 47, 0.9);
+                padding: 20px;
+            }
+
+            nav.active {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            #showcase h1 {
+                font-size: 2.5rem;
+            }
+
+            #showcase p {
+                font-size: 1rem;
+            }
+
+            .offer-banner {
+                font-size: 1rem;
+                padding: 10px 0;
+            }
+        }
+    </style>
+</head>
 <body>
     <header>
         <div class="container">
@@ -316,6 +342,10 @@
             </div>
         </div>
     </header>
+
+    <div class="offer-banner">
+        Boost your reviews by 20-35 in 30 days or you do not pay!
+    </div>
 
     <section id="showcase">
         <h1>Elevate Your Reputation</h1>
@@ -412,7 +442,7 @@
                 <h2 class="section-title">Let's Elevate Your Reputation</h2>
                 <p class="centered-text">Don't let <span class="highlight-text">poor reviews</span> or a <span class="highlight-text">low review count</span> hold your business back. <span class="highlight-text">Take control</span> of your online presence today.</p>
                 <div class="contact-form">
-                    <form action="https://formspree.io/f/your_form_id" method="POST">
+<form action="https://formspree.io/f/your_form_id" method="POST">
                         <div class="form-group">
                             <label for="name">Name</label>
                             <input type="text" id="name" name="name" required>
@@ -435,4 +465,54 @@
                 <div class="contact-info">
                     <h3>Contact Us</h3>
                     <p>Phone: +61 473 259 052</p>
-                    <p>Email: <a href="/cdn-cgi/l/email-protection#7a13141c153a081f0c131f0d1d151b0e54191517541b0f"><span class="__cf_email__" data-cfemail="157c7b737a556770637c7062727a74613b767a783b7460">[email&#160;protected]</span></a></p><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+                    <p>Email: <a href="mailto:info@reviewgoat.com.au">info@reviewgoat.com.au</a></p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Review Goat. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.mobile-menu-toggle');
+            const nav = document.querySelector('nav');
+
+            menuToggle.addEventListener('click', function() {
+                nav.classList.toggle('active');
+            });
+        });
+
+        // Adjust content padding for fixed header and offer banner
+        document.addEventListener('DOMContentLoaded', function() {
+            const header = document.querySelector('header');
+            const offerBanner = document.querySelector('.offer-banner');
+            const contentWrapper = document.querySelector('.content-wrapper');
+            
+            function adjustContentPadding() {
+                const totalOffset = header.offsetHeight + offerBanner.offsetHeight;
+                contentWrapper.style.paddingTop = `${totalOffset}px`;
+            }
+
+            window.addEventListener('resize', adjustContentPadding);
+            adjustContentPadding();
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
