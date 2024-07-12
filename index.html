@@ -1,16 +1,20 @@
+
+<html><head><base href="https://reviewgoat.com.au"></head><body>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <base href="https://reviewgoat.com.au">
-    <title>Review Goat - Gold Coast's Premier Review Management</title>
+    <title>ReviewGoat - Australia's Premier Review Management Platform</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-color: #0a192f;
             --secondary-color: #64ffda;
             --text-color: #ccd6f6;
+            --bg-color: #0a192f;
+            --card-bg-color: rgba(255,255,255,0.05);
         }
         
         * {
@@ -23,8 +27,7 @@
             font-family: 'Montserrat', sans-serif;
             line-height: 1.6;
             color: var(--text-color);
-            background-color: var(--primary-color);
-            padding-top: 120px; /* Adjust for fixed header and banner */
+            background-color: var(--bg-color);
         }
 
         .container {
@@ -35,7 +38,7 @@
         }
 
         header {
-            background: rgba(10, 25, 47, 0.9);
+            background: rgba(10, 25, 47, 0.95);
             backdrop-filter: blur(10px);
             padding: 1rem 0;
             position: fixed;
@@ -43,6 +46,7 @@
             top: 0;
             left: 0;
             z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
         .header-content {
@@ -61,12 +65,12 @@
             height: 40px;
             margin-right: 10px;
             border-radius: 50%;
-            border: 2px solid var(--secondary-color);
         }
 
         .logo h1 {
             font-size: 1.5rem;
             color: var(--secondary-color);
+            font-weight: 700;
         }
 
         nav ul {
@@ -83,6 +87,9 @@
             text-decoration: none;
             font-weight: 600;
             transition: color 0.3s ease;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         nav a:hover {
@@ -98,22 +105,8 @@
             cursor: pointer;
         }
 
-        .offer-banner {
-            background-color: var(--secondary-color);
-            color: var(--primary-color);
-            text-align: center;
-            padding: 10px 0;
-            font-weight: 700;
-            font-size: 1.2rem;
-            position: fixed;
-            width: 100%;
-            top: 70px; /* Adjust based on header height */
-            left: 0;
-            z-index: 999;
-        }
-
         #showcase {
-            background: linear-gradient(rgba(10, 25, 47, 0.7), rgba(10, 25, 47, 0.7)), url('https://images.unsplash.com/photo-1577007273985-6f301a1d252e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8Z29sZCBjb2FzdHx8fHx8fDE2ODUwMjI2MjY&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080') no-repeat center center/cover;
+            background: linear-gradient(rgba(10, 25, 47, 0.8), rgba(10, 25, 47, 0.8)), url('https://images.unsplash.com/photo-1577007273985-6f301a1d252e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8Z29sZCBjb2FzdHx8fHx8fDE2ODUwMjI2MjY&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1080') no-repeat center center/cover;
             height: 100vh;
             display: flex;
             flex-direction: column;
@@ -121,21 +114,23 @@
             align-items: center;
             text-align: center;
             padding: 0 20px;
-            margin-top: 120px; /* Adjust based on header and banner height */
         }
 
         #showcase h1 {
             font-weight: 800;
-            font-size: 3rem;
+            font-size: 3.5rem;
             margin-bottom: 20px;
             color: var(--secondary-color);
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            animation: fadeInUp 1s ease-out;
         }
 
         #showcase p {
             font-size: 1.2rem;
             margin-bottom: 30px;
             max-width: 600px;
+            animation: fadeInUp 1s ease-out 0.5s;
+            animation-fill-mode: both;
         }
 
         .btn {
@@ -151,43 +146,57 @@
             transition: all 0.3s ease;
             border-radius: 50px;
             text-decoration: none;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            animation: fadeInUp 1s ease-out 1s;
+            animation-fill-mode: both;
         }
 
         .btn:hover {
             background: #5ae0c5;
             transform: translateY(-3px);
-        }
-
-        .content-wrapper {
-            position: relative;
-            z-index: 1;
-            background-color: var(--primary-color);
+            box-shadow: 0 6px 8px rgba(0,0,0,0.15);
         }
 
         section {
-            padding: 80px 0;
+            padding: 100px 0;
         }
 
         .section-title {
-            font-size: 2rem;
+            font-size: 2.5rem;
             font-weight: 800;
             color: var(--secondary-color);
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
             text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: var(--secondary-color);
+            margin: 10px auto;
         }
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
         }
 
         .card {
-            background: rgba(255,255,255,0.05);
+            background: var(--card-bg-color);
             padding: 30px;
             border-radius: 15px;
             text-align: center;
             transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
         }
 
         .card:hover {
@@ -198,11 +207,29 @@
         .card h3 {
             color: var(--secondary-color);
             margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover img {
+            transform: scale(1.05);
         }
 
         .contact-form {
             max-width: 600px;
             margin: 0 auto;
+            background: var(--card-bg-color);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
         .form-group {
@@ -212,55 +239,38 @@
         .form-group label {
             display: block;
             margin-bottom: 5px;
+            font-weight: 600;
         }
 
         .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             border: 1px solid rgba(255,255,255,0.1);
             background: rgba(255,255,255,0.05);
             color: var(--text-color);
             border-radius: 5px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 2px rgba(100,255,218,0.2);
         }
 
         .form-group textarea {
             height: 150px;
+            resize: vertical;
         }
 
         footer {
-            background: rgba(10, 25, 47, 0.9);
+            background: rgba(10, 25, 47, 0.95);
             text-align: center;
             padding: 20px 0;
-        }
-
-        #facts .card {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            height: 100%;
-        }
-
-        #facts .highlight {
-            font-size: 3.5rem;
-            font-weight: 800;
-            color: var(--secondary-color);
-            margin: 20px 0;
-            line-height: 1;
-        }
-
-        #facts .card p:not(.highlight) {
-            font-size: 1rem;
-            color: var(--text-color);
-        }
-
-        #facts .card::before {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 3px;
-            background-color: var(--secondary-color);
-            margin: 0 auto 15px;
+            margin-top: 50px;
         }
 
         .highlight-text {
@@ -273,8 +283,54 @@
             max-width: 800px;
             margin: 0 auto;
             margin-bottom: 2rem;
+            font-size: 1.1rem;
         }
 
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideInFromLeft {
+    from { transform: translateX(-50px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInFromRight {
+    from { transform: translateX(50px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes scaleIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.animate-fade-in {
+    animation: fadeIn 1s ease-out;
+}
+
+.animate-slide-left {
+    animation: slideInFromLeft 1s ease-out;
+}
+
+.animate-slide-right {
+    animation: slideInFromRight 1s ease-out;
+}
+
+.animate-scale-in {
+    animation: scaleIn 0.5s ease-out;
+}
         @media (max-width: 768px) {
             .mobile-menu-toggle {
                 display: block;
@@ -286,7 +342,7 @@
                 position: absolute;
                 top: 100%;
                 left: 0;
-                background: rgba(10, 25, 47, 0.9);
+                background: rgba(10, 25, 47, 0.95);
                 padding: 20px;
             }
 
@@ -310,9 +366,12 @@
                 font-size: 1rem;
             }
 
-            .offer-banner {
-                font-size: 1rem;
-                padding: 10px 0;
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -322,16 +381,15 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <img src="https://page-images.websim.ai/Review%20Goat%20Logo_1024x1024xpiHtVX0KcwXFBOGJ6x27d87eb6dfd98.jpg" alt="Review Goat Logo">
-                    <h1>Review Goat</h1>
+                    <img src="https://page-images.websim.ai/review-goat-logo_200x200xmWFnGYgYW1IWvHQRRbfed4407f615ba9.jpg" alt="ReviewGoat Logo" width="40" height="40">
+                    <h1>ReviewGoat</h1>
                 </div>
                 <nav>
                     <ul>
                         <li><a href="#showcase">Home</a></li>
-                        <li><a href="#facts">Facts</a></li>
                         <li><a href="#features">Features</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#services">Services</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#statistics">Statistics</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </nav>
@@ -340,138 +398,144 @@
         </div>
     </header>
 
-    <div class="offer-banner">
-        20-35 review boost in 30 days or you don't pay!
-    </div>
-
     <section id="showcase">
-        <h1>Elevate Your Reputation</h1>
-        <p>Gold Coast's Premier Review Management Service</p>
-        <a href="#contact" class="btn">GET STARTED</a>
+        <h1>Australia's Premier Review Management Platform</h1>
+        <p>20-30 positive reviews in 30 days or you don't pay</p>
+        <a href="#contact" class="btn">Request a Demo</a>
     </section>
 
-    <div class="content-wrapper">
-        <section id="facts">
-            <div class="container">
-                <h2 class="section-title">Why Your Reviews Matter</h2>
-                <div class="grid">
-                    <div class="card">
-                        <h3>Lost Customers</h3>
-                        <p class="highlight">94%</p>
-                        <p>of potential customers are driven away by negative reviews.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Revenue at Risk</h3>
-                        <p class="highlight">52%</p>
-                        <p>increase in revenue for businesses with just 9 current reviews.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Missed Opportunities</h3>
-                        <p class="highlight">33%</p>
-                        <p>of negative reviews can be turned into positive ones with proper management.</p>
-                    </div>
+    <section id="features">
+        <div class="container">
+            <h2 class="section-title">Standout Features</h2>
+            <div class="grid">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1485988412941-77a35537dae4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Time-saving illustration" width="280" height="200">
+                    <h3>Time-Saving</h3>
+                    <p>Save valuable time and resources by automating your review management process.</p>
+                </div>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1533750349088-cd871a92f312?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Productivity boost illustration" width="280" height="200">
+                    <h3>Boost Productivity</h3>
+                    <p>Increase efficiency and attract more leads, driving sales for your business.</p>
+                </div>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1611162616475-46b635cb6868?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Multi-platform illustration" width="280" height="200">
+                    <h3>Multi-Platform</h3>
+                    <p>Get reviews on key sites like Google, Facebook, TripAdvisor, and more.</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="features">
-            <div class="container">
-                <h2 class="section-title">Our Features</h2>
-                <div class="grid">
-                    <div class="card">
-                        <img src="https://img.icons8.com/nolan/64/bullish.png" alt="Presence Icon">
-                        <h3>Boost Your Presence</h3>
-                        <p>Enhance your online visibility by increasing positive reviews and efficiently managing your reputation.</p>
-                    </div>
-                    <div class="card">
-                        <img src="https://img.icons8.com/nolan/64/consultation.png" alt="Guidance Icon">
-                        <h3>Expert Guidance</h3>
-                        <p>Benefit from tailored strategies by our local Gold Coast experts to elevate your business.</p>
-                    </div>
-                    <div class="card">
-                        <img src="https://img.icons8.com/nolan/64/line-chart.png" alt="Insights Icon">
-                        <h3>Real-time Insights</h3>
-                        <p>Stay informed with our advanced analytics dashboard that tracks your review performance.</p>
-                    </div>
+    <section id="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <div class="grid">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1596526131083-e8c633c948d2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Email notification illustration" width="280" height="200">
+                    <h3>📩 1. Customer Receives a Message</h3>
+                    <p>Your customers receive an automated email and/or text message inviting them to review your business.</p>
+                </div>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1527689368864-3a821dbccc34?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Customer review illustration" width="280" height="200">
+                    <h3>⭐ 2. Customer Leaves a Review</h3>
+                    <p>Customers are directed to review your business on key sites, boosting your digital reputation.</p>
+                </div><div class="card">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Dashboard monitoring illustration" width="280" height="200">
+                    <h3>📊 3. Monitor Your Reputation</h3>
+                    <p>Easily view and manage all your reviews from various sites in one user-friendly dashboard.</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="about">
-            <div class="container">
-                <h2 class="section-title">About Review Goat</h2>
-                <p class="centered-text">Review Goat stands as the <span class="highlight-text">leading review management service</span> on the Gold Coast. Since 2020, we've <span class="highlight-text">empowering local businesses</span> to climb higher in the digital realm.</p>
-                <div class="grid">
-                    <div class="card">
-                        <h3>Our Mission</h3>
-                        <p>To provide unique, local insight combined with cutting-edge technology to ensure your business shines on review platforms.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Our Approach</h3>
-                        <p>Navigating even the trickiest review landscapes with precision, we excel at crafting tailored strategies to foster positive online presences.</p>
-                    </div>
+    <section id="powerful-features">
+        <div class="container">
+            <h2 class="section-title">Powerful Features</h2>
+            <div class="grid">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1586769852044-692d6e3703f0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Automation illustration" width="280" height="200">
+                    <h3>Automate Review Invitations</h3>
+                    <p>Seamlessly integrate with your current systems to automate review collection.</p>
+                </div>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1611162616475-46b635cb6868?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlf%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Review platforms illustration" width="280" height="200">
+                    <h3>Reviews Where It Matters</h3>
+                    <p>Connect with all important review sites for your business.</p>
+                </div>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Advanced reporting illustration" width="280" height="200">
+                    <h3>Advanced Reporting</h3>
+                    <p>Receive in-depth reports on your online reputation and analyze feedback.</p>
+                </div>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1517292987719-0369a794ec0f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Customizable templates illustration" width="280" height="200">
+                    <h3>Customizable Templates</h3>
+                    <p>Create fully customizable messages using our template creator.</p>
+                </div>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Review reminders illustration" width="280" height="200">
+                    <h3>Review Reminders</h3>
+                    <p>Send automated, friendly reminders to increase the chances of 5-star reviews.</p>
+                </div>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Negative review management illustration" width="280" height="200">
+                    <h3>Manage Negative Reviews</h3>
+                    <p>Automate responses to negative reviews with predefined templates.</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="services">
-            <div class="container">
-                <h2 class="section-title">Our Services</h2>
-                <div class="grid">
-                    <div class="card">
-                        <h3>Review Monitoring</h3>
-                        <p>Keep a constant eye on your reviews across all major platforms with real-time alerts.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Response Management</h3>
-                        <p>Our team crafts personalized responses, maintaining your brand voice and effectively addressing customer feedback.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Reputation Building</h3>
-                        <p>Encourage satisfied customers to leave positive reviews and boost your online reputation.</p>
-                    </div>
+    <section id="statistics">
+        <div class="container">
+            <h2 class="section-title">Key Statistics</h2>
+            <div class="grid">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1543286386-713bdd548da4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Revenue increase illustration" width="280" height="200">
+                    <h3>6%</h3>
+                    <p>Average increase in revenue from reviews</p>
+                </div>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1551135049-8a33b5883817?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Review count illustration" width="280" height="200">
+                    <h3>20</h3>
+                    <p>Average number of reviews a ReviewGoat user gets each month</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="contact">
-            <div class="container">
-                <h2 class="section-title">Let's Elevate Your Reputation</h2>
-                <p class="centered-text">Don't let <span class="highlight-text">poor reviews</span> or a <span class="highlight-text">low review count</span>
-<p class="centered-text">Don't let <span class="highlight-text">poor reviews</span> or a <span class="highlight-text">low review count</span> hold your business back. <span class="highlight-text">Take control</span> of your online presence today.</p>
-                <div class="contact-form">
-                    <form action="https://formspree.io/f/your_form_id" method="POST">
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="business">Business Name</label>
-                            <input type="text" id="business" name="business">
-                        </div>
-                        <div class="form-group">
-                            <label for="message">How can we help improve your online reputation?</label>
-                            <textarea id="message" name="message" required></textarea>
-                        </div>
-                        <button type="submit" class="btn">Get Free Consultation</button>
-                    </form>
-                </div>
-                <div class="contact-info">
-                    <h3>Contact Us</h3>
-                    <p>Phone: +61 473 259 052</p>
-                    <p>Email: <a href="mailto:info@reviewgoat.com.au">info@reviewgoat.com.au</a></p>
-                </div>
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">See ReviewGoat in Action</h2>
+            <p class="centered-text">Ready to start? Request a demo now and let us show you how our platform can boost your business.</p>
+            <div class="contact-form">
+                <form action="https://formspree.io/f/your_form_id" method="POST">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="business">Business Name</label>
+                        <input type="text" id="business" name="business">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">How can ReviewGoat help your business?</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Request a Demo</button>
+                </form>
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
 
     <footer>
         <div class="container">
-            <p>&copy; 2023 Review Goat. All rights reserved.</p>
+            <p>&copy; 2023 ReviewGoat. All rights reserved.</p>
         </div>
     </footer>
 
@@ -494,6 +558,88 @@
                 });
             });
         });
+
+        // Add animation to cards on scroll
+        const cards = document.querySelectorAll('.card');
+        const animateCards = () => {
+            const triggerBottom = window.innerHeight / 5 * 4;
+            cards.forEach(card => {
+                const cardTop = card.getBoundingClientRect().top;
+                if(cardTop < triggerBottom) {
+                    card.classList.add('show');
+                } else {
+                    card.classList.remove('show');
+                }
+            });
+        }
+        window.addEventListener('scroll', animateCards);
+
+        // Lazy loading images
+        const images = document.querySelectorAll('img[data-src]');
+        const loadImg = (image) => {
+            image.setAttribute('src', image.getAttribute('data-src'));
+            image.onload = () => {
+                image.removeAttribute('data-src');
+            };
+        };
+
+        const imgOptions = {
+            threshold: 0,
+            rootMargin: "0px 0px 300px 0px"
+        };
+
+        const imgObserver = new IntersectionObserver((entries, imgObserver) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    return;
+                } else {
+                    loadImg(entry.target);
+                    imgObserver.unobserve(entry.target);
+                }
+            })
+        }, imgOptions);
+
+        images.forEach(image => {
+            imgObserver.observe(image);
+        });
+// Animate elements on scroll
+function animateOnScroll() {
+    const elements = document.querySelectorAll('.animate-on-scroll');
+    const triggerBottom = window.innerHeight / 5 * 4;
+
+    elements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        if(elementTop < triggerBottom) {
+            element.classList.add('animate-fade-in');
+        }
+    });
+}
+
+window.addEventListener('scroll', animateOnScroll);
+window.addEventListener('load', animateOnScroll);
+
+// Animate showcase elements on page load
+document.addEventListener('DOMContentLoaded', function() {
+    const showcaseTitle = document.querySelector('#showcase h1');
+    const showcaseParagraph = document.querySelector('#showcase p');
+    const showcaseButton = document.querySelector('#showcase .btn');
+
+    showcaseTitle.classList.add('animate-slide-left');
+    showcaseParagraph.classList.add('animate-slide-right');
+    showcaseButton.classList.add('animate-scale-in');
+});
+
+// Add hover animation to cards
+const cards = document.querySelectorAll('.card');
+cards.forEach(card => {
+    card.addEventListener('mouseenter', () => {
+        card.classList.add('animate-scale-in');
+    });
+    card.addEventListener('mouseleave', () => {
+        card.classList.remove('animate-scale-in');
+    });
+});
     </script>
 </body>
+</html></body>
 </html>
